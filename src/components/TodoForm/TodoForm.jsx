@@ -13,7 +13,7 @@ const TodoForm = () => {
   };
   return (
     <div>
-      <form onSubmit={handleTodoSubmit}>
+      <form className="min-w-96" onSubmit={handleTodoSubmit}>
         <div>
           {" "}
           <input
@@ -22,25 +22,34 @@ const TodoForm = () => {
             name="todo"
             placeholder="Add todo "
           />{" "}
-          <input
-            className="border w-full border-blue-400 px-5 py-2 rounded-lg"
-            type="date"
-            name="date"
-            id=""
-          />
-          <div className="space-x-2 flex my-2">
+          <div>
+            <label htmlFor="date">Date</label>
             <input
-              className="border w-1/2 border-blue-400 px-5 py-2 rounded-lg"
+              className="border w-full border-blue-400 px-5 py-2 rounded-lg"
+              type="date"
+              name="date"
+              id="date"
+            />
+          </div>
+          <div className="my-2">
+            <label htmlFor="starts">Starts At</label>
+
+            <input
+              className="border w-full border-blue-400 px-5 py-2 rounded-lg"
               type="time"
               name="starts"
-              id=""
+              id="starts"
             />
-            <input
-              className="border w-1/2 border-blue-400 px-5 py-2 rounded-lg"
-              type="time"
-              name="ends"
-              id=""
-            />
+            <div className="mt-2">
+              {" "}
+              <label htmlFor="ends">Ends At</label>
+              <input
+                className="border w-full border-blue-400 px-5 py-2 rounded-lg"
+                type="time"
+                name="ends"
+                id="ends"
+              />
+            </div>
           </div>
         </div>
         <button className="bg-orange-600 text-white w-full my-3 px-5 py-2 rounded-lg">
