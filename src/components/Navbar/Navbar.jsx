@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
@@ -15,13 +15,15 @@ const Navbar = () => {
           </Link>
         </div>
         {session.status === "authenticated" ? (
-          <p className="cursor-pointer text-white">Logout</p>
+          <p onClick={() => signOut()} className="cursor-pointer text-white">
+            Logout
+          </p>
         ) : (
           <div className="flex gap-4 text-white font-medium">
             <Link href="/api/auth/signin">
               <p className="cursor-pointer">Login</p>
             </Link>
-            <Link href="/register">
+            <Link href="/api/auth/signup">
               <p className="cursor-pointer">Register</p>
             </Link>
           </div>

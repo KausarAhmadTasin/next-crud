@@ -1,5 +1,10 @@
 "use client";
+
+import { useSession } from "next-auth/react";
+
 const TodoForm = () => {
+  const session = useSession();
+
   const handleTodoSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -9,16 +14,17 @@ const TodoForm = () => {
       starts: form.starts.value,
       ends: form.ends.value,
     };
-    console.log(todo);
   };
   return (
     <div>
       <form className="min-w-96" onSubmit={handleTodoSubmit}>
         <div>
           {" "}
+          <label htmlFor="todo">Todo</label>
           <input
             className="border border-blue-400 w-full my-2 px-5 py-2 rounded-lg"
             type="text"
+            id="todo"
             name="todo"
             placeholder="Add todo "
           />{" "}
@@ -52,8 +58,15 @@ const TodoForm = () => {
             </div>
           </div>
         </div>
-        <button className="bg-orange-600 text-white w-full my-3 px-5 py-2 rounded-lg">
-          Add
+        <button
+          disabled={!(session.status === "authenticated")}
+          className={` text-white w-full my-3 px-5 py-2 rounded-lg ${
+            session.status === "authenticated" ? "bg-orange-600" : "bg-gray-400"
+          }`}
+        >
+          {session.status === "authenticated"
+            ? "Add"
+            : "*First login to add todos*"}
         </button>
       </form>
     </div>
