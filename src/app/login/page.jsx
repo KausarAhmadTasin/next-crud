@@ -1,4 +1,11 @@
-const login = () => {
+"use client";
+
+import { useState } from "react";
+import { GoEye, GoEyeClosed } from "react-icons/go";
+
+const Login = () => {
+  const [isEyeOpen, setIsEyeOpen] = useState(false);
+
   return (
     <div>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -21,7 +28,7 @@ const login = () => {
                 required
               />
             </div>
-            <div className="mb-1">
+            <div className="mb-1 relative">
               <label
                 className="block text-gray-700 font-semibold mb-2"
                 htmlFor="password"
@@ -29,15 +36,27 @@ const login = () => {
                 Password
               </label>
               <input
-                type="password"
+                type={isEyeOpen ? `text` : `password`}
                 id="password"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
+              <GoEye
+                onClick={() => setIsEyeOpen(true)}
+                className={`${
+                  isEyeOpen ? "hidden" : "absolute"
+                } bottom-3 right-2`}
+              />
+              <GoEyeClosed
+                onClick={() => setIsEyeOpen(false)}
+                className={`${
+                  !isEyeOpen ? "hidden" : "absolute"
+                } bottom-3 right-2`}
+              />
             </div>
             <div className="mb-6 text-sm">
               <a href="/register">
-                Don&apos;t have an account{" "}
+                Don&apos;t have an account?{" "}
                 <span className="text-blue-400 hover:text-blue-500 hover:underline underline-offset-2 transition duration-150 ease-in-out cursor-pointer">
                   Register
                 </span>
@@ -56,4 +75,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
