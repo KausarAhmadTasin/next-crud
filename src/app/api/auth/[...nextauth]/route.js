@@ -41,13 +41,4 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-const users = [
-  {
-    id: 1,
-    name: "abul",
-    email: "abul@gmail.com",
-    password: "111111",
-  },
-];
-
 export { handler as GET, handler as POST };
