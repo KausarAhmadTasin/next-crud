@@ -110,12 +110,15 @@ const Register = () => {
           </div>
           {passErr && <p className="text-red-500 text-sm mb-6">{passErr}</p>}
           <div className="mb-4 text-sm">
-            <a href="/api/auth/signin">
-              Already have an account?{" "}
-              <span className="text-blue-400 hover:text-blue-500 hover:underline underline-offset-2 transition duration-150 ease-in-out cursor-pointer">
-                Login
-              </span>
-            </a>
+            <Link href="/api/auth/signin">
+              {" "}
+              <p>
+                Already have an account?{" "}
+                <span className="text-blue-400 hover:text-blue-500 hover:underline underline-offset-2 transition duration-150 ease-in-out cursor-pointer">
+                  Login
+                </span>
+              </p>
+            </Link>
           </div>
           <button
             type="submit"
