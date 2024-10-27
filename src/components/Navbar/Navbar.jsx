@@ -5,7 +5,6 @@ import React from "react";
 
 const Navbar = () => {
   const session = useSession();
-  console.log(session);
   return (
     <div className="w-full bg-blue-500 ">
       <div className="mx-auto container px-8 py-4 flex justify-between">
