@@ -10,7 +10,7 @@ const TodoApp = () => {
 
   const fetchTodos = async () => {
     setLoading(true);
-    const response = await fetch("http://localhost:3000/api/todos");
+    const response = await fetch("https://next-todo-yrif.vercel.app/api/todos");
     const data = await response.json();
     setTodos(data);
     setLoading(false);

@@ -20,7 +20,7 @@ const Register = () => {
         password,
       };
       const res = await fetch(
-        "http://localhost:3000/api/auth/signup/new-user",
+        "https://next-todo-yrif.vercel.app/api/auth/signup/new-user",
         {
           method: "POST",
           body: JSON.stringify(user),

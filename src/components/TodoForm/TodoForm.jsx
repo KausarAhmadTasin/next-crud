@@ -16,7 +16,7 @@ const TodoForm = ({ fetchTodos }) => {
     };
     console.log(todo);
 
-    const res = await fetch("http://localhost:3000/api/todos", {
+    const res = await fetch("https://next-todo-yrif.vercel.app/api/todos", {
       method: "POST",
       body: JSON.stringify(todo),
       headers: { "content-type": "application/json" },
